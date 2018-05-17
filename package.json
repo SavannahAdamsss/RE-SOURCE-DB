@@ -1,0 +1,27 @@
+{
+  "name": "re-source-database",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vision-X/RE-SOURCE-DB.git"
+  },
+  "author": "Michael Marlow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vision-X/RE-SOURCE-DB/issues"
+  },
+  "homepage": "https://github.com/Vision-X/RE-SOURCE-DB#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "pg": "^7.4.3"
+  }
+}
