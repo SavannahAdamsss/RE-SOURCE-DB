@@ -5,13 +5,14 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
-app.get("/FE", (request, response) => {
+// FrontEnd crud //
+app.get("/fe", (request, response) => {
     queries.list().then(item => {
         response.json({item});
     }).catch(console.error);
 });
 
-app.get("/FE/:id", (request, response) => {
+app.get("/fe/:id", (request, response) => {
     queries.read(request.params.id).then(item => {
         item
             ? response.json({item})
@@ -19,19 +20,133 @@ app.get("/FE/:id", (request, response) => {
     }).catch(console.error);
 });
 
-app.post("/FE", (request, response) => {
+app.post("/fe", (request, response) => {
     queries.create(request.body).then(item => {
         response.status(201).json({item});
     }).catch(console.error);
 });
 
-app.delete("/FE/:id", (request, response) => {
+app.delete("/fe/:id", (request, response) => {
     queries.delete(request.params.id).then(() => {
         response.sendStatus(204);
     }).catch(console.error);
 });
 
-app.put("/FE/:id", (request, response) => {
+app.put("/fe/:id", (request, response) => {
+    queries.update(request.params.id, request.body).then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.use((request, response) => {
+    response.send(404);
+});
+
+// Back End CRUD //
+
+app.get("/be", (request, response) => {
+    queries.list().then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.get("/be/:id", (request, response) => {
+    queries.read(request.params.id).then(item => {
+        item
+            ? response.json({item})
+            : response.sendStatus(404)
+    }).catch(console.error);
+});
+
+app.post("/be", (request, response) => {
+    queries.create(request.body).then(item => {
+        response.status(201).json({item});
+    }).catch(console.error);
+});
+
+app.delete("/be/:id", (request, response) => {
+    queries.delete(request.params.id).then(() => {
+        response.sendStatus(204);
+    }).catch(console.error);
+});
+
+app.put("/be/:id", (request, response) => {
+    queries.update(request.params.id, request.body).then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.use((request, response) => {
+    response.send(404);
+});
+
+// Servers CRUD //
+
+app.get("/servers", (request, response) => {
+    queries.list().then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.get("/servers/:id", (request, response) => {
+    queries.read(request.params.id).then(item => {
+        item
+            ? response.json({item})
+            : response.sendStatus(404)
+    }).catch(console.error);
+});
+
+app.post("/servers", (request, response) => {
+    queries.create(request.body).then(item => {
+        response.status(201).json({item});
+    }).catch(console.error);
+});
+
+app.delete("/servers/:id", (request, response) => {
+    queries.delete(request.params.id).then(() => {
+        response.sendStatus(204);
+    }).catch(console.error);
+});
+
+app.put("/servers/:id", (request, response) => {
+    queries.update(request.params.id, request.body).then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.use((request, response) => {
+    response.send(404);
+});
+
+// Libraries CRUD //
+
+app.get("/libraries", (request, response) => {
+    queries.list().then(item => {
+        response.json({item});
+    }).catch(console.error);
+});
+
+app.get("/libraries/:id", (request, response) => {
+    queries.read(request.params.id).then(item => {
+        item
+            ? response.json({item})
+            : response.sendStatus(404)
+    }).catch(console.error);
+});
+
+app.post("/libraries", (request, response) => {
+    queries.create(request.body).then(item => {
+        response.status(201).json({item});
+    }).catch(console.error);
+});
+
+app.delete("/libraries/:id", (request, response) => {
+    queries.delete(request.params.id).then(() => {
+        response.sendStatus(204);
+    }).catch(console.error);
+});
+
+app.put("/libraries/:id", (request, response) => {
     queries.update(request.params.id, request.body).then(item => {
         response.json({item});
     }).catch(console.error);
