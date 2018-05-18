@@ -68,7 +68,7 @@ app.get("/libraries/:id", (request, response) => {
 
 app.post("/fe", (request, response) => {
     queries.create("fe", request.body).then(item => {
-        response.status(201).json({item});
+        response.status(201).json({item: item});
     }).catch(console.error);
 });
 
