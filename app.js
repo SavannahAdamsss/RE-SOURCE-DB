@@ -1,22 +1,13 @@
 const express = require("express");
 const app = express();
 const queries = require("./queries");
-// const backend = require("./queries/backend-queries");
-// const frontend = require("./queries/frontend-queries");
-// const servers = require("./queries/servers-queries");
-// const libraries = require("./queries/libraries-queries");
 const bodyParser = require("body-parser");
 const cors = require("cors")
 
 app.use(bodyParser.json());
 app.use(cors());
 
-// app.use('/fe', frontend);
-// app.use('/be', backend);
-// app.use('/servers', servers);
-// app.use('/libraries', libraries);
-
-// GETTTTTTTTT //
+// GET //
 app.get("/fe", (request, response) => {
     queries.list("fe").then(item => {
         response.json({item});
@@ -73,7 +64,7 @@ app.get("/libraries/:id", (request, response) => {
     }).catch(console.error);
 });
 
-// POSTTTTTTTTT
+// POST //
 
 app.post("/fe", (request, response) => {
     queries.create("fe", request.body).then(item => {
@@ -99,7 +90,7 @@ app.post("/libraries", (request, response) => {
     }).catch(console.error);
 });
 
-// DELETEEEEE//
+// DELETE //
 
 app.delete("/fe/:id", (request, response) => {
     queries.delete("fe", request.params.id).then(() => {

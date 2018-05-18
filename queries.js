@@ -14,14 +14,14 @@ module.exports = {
       return database(db)
             .insert(item)
             .returning('*')
-            .then(item => item[0])
+            .then(record => record[0])
     },
     update(db, id, item) {
       return database(db)
             .update(item)
             .where('id', id)
             .returning('*')
-            .then(item => item[0]);
+            .then(record => record[0]);
     },
     delete(db, id) {
       return database(db)
