@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors")
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 // GETTTTTTTTT //
 app.get("/fe", (request, response) => {
     queries.list().then(item => {
