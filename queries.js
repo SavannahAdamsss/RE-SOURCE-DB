@@ -28,5 +28,33 @@ module.exports = {
             .select('*')
             .where('id', id)
             .del()
+    },
+    list() {
+      return database('be')
+    },
+    read(id) {
+      return database('be')
+            .select('*')
+            .where('id', id)
+            .first();
+    },
+    create(item) {
+      return database('be')
+            .insert(item)
+            .returning('*')
+            .then(item => item[0])
+    },
+    update(id, item) {
+      return database('be')
+            .update(item)
+            .where('id', id)
+            .returning('*')
+            .then(coffee => coffee[0])
+    },
+    delete(id) {
+      return database('be')
+            .select('*')
+            .where('id', id)
+            .del()
     }
 };
