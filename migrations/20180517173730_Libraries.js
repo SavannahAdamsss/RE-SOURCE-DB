@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('Libraries', table=> {
+  return knex.schema.createTable('Libraries', table => {
     table.increments('id').primary()
     table.text('title')
     table.text('body')
